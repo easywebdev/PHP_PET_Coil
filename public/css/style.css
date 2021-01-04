@@ -1,0 +1,247 @@
+/**
+ * Main Styles
+ */
+html {
+    font-size: 18px;
+    font-family: Verdana, sans-serif;
+    background-color: #20201E;
+    color: #D0D0CE;
+}
+ body {
+     color: #D0D0CE;
+ }
+
+/*=== Structural ===*/
+.s-header {
+
+}
+
+.container {
+    max-width: 1024px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+/**/
+
+/*=== Common styles ===*/
+.h1{
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #ED7B01;
+}
+
+.h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #ED7B01;
+}
+
+.p-1rem {
+    padding: 1rem;
+}
+
+.bb {
+    border-bottom: 0.1rem solid #929292;
+}
+
+.mb-05rem {
+    margin-bottom: 0.5rem;
+}
+
+.mb-1rem {
+    margin-bottom: 1rem;
+}
+
+.mr-05rem {
+    margin-right: 0.5rem;
+}
+
+.mr-1rem {
+    margin-right: 1rem;
+}
+
+.mh-8rem {
+    min-height: 8rem;
+}
+
+.mh-12rem {
+    min-height: 12rem;
+}
+
+.bc-red {
+    background-color: red;
+}
+
+.bc-gray {
+    background-color: #a0aec0;
+}
+
+.w-2rem {
+    width: 2rem;
+}
+
+.w-5rem {
+    width: 5rem;
+}
+
+.w-6rem {
+    width: 6rem;
+}
+
+a.btn, a.btn:hover, a.btn:focus, a.btn:active, a.btn:visited {
+    display: inline-block;
+    padding: 0.3rem 0.55rem 0.3rem 0.55rem;
+    border-radius: 0.2rem;
+    background-color: rgb(224, 224, 224);
+    color: #20201E;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.btn:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 10px 29px 0px rgba(46, 8, 59, 0.34),inset 0px -1px 0px 0px rgba(255, 255, 255, 0.08);
+    /*box-shadow: inset 0 0 0 0.2rem #ED7B01*/;
+}
+
+a.btn:active {
+    background-color: rgba(255, 255, 255,.2);
+}
+
+input {
+    border: solid 0.15rem green;
+    border-radius: 0.3rem;
+    background-color: transparent;
+    text-align: center;
+    color: #cbd5e0;
+}
+
+select {
+    border: solid 0.15rem green;
+    border-radius: 0.3rem;
+    background-color: transparent;
+    text-align: center;
+    color: #cbd5e0;
+}
+
+    select option {
+        background-color: #20201E;
+    }
+/**/
+
+.block {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .block--jc-center {
+        justify-content: center;
+    }
+
+.block__item {
+    /*background-color: red;*/
+}
+
+.design {
+    position: relative;
+    min-height: 15rem;
+    min-width: 18rem;
+    background-image: url("../images/coil.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+    .inner-d {
+        position: absolute;
+        width: 3rem;
+        top: 4.7rem;
+        left: 5rem;
+        transform: rotate(-90deg);
+        text-align: center;
+    }
+
+    .outer-d {
+        position: absolute;
+        width: 4rem;
+        top: 4.8rem;
+        left: -0.8rem;
+        transform: rotate(-90deg);
+        text-align: center;
+    }
+
+    .length {
+        position: absolute;
+        width: 4rem;
+        top: 12.5rem;
+        left: 10.5rem;
+        text-align: center;
+    }
+
+.wire {
+    position: relative;
+    min-height: 8rem;
+    min-width: 15rem;
+    background-image: url("../images/wire.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+    .conductor-d {
+        position: absolute;
+        top: 3.5rem;
+        left: 8rem;
+        width: 3rem;
+        transform: rotate(-90deg);
+        text-align: center;
+    }
+
+    .full-d {
+        position: absolute;
+        top: 3.5rem;
+        left: 12.6rem;
+        width: 3rem;
+        transform: rotate(-90deg);
+        text-align: center;
+    }
+
+.form-el {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 0.3rem;
+}
+
+.tbl, .tbl td, .tbl th {
+    border: solid 0.1rem green;
+    padding: 0.5rem;
+}
+
+.chart {
+    width: 26rem;
+}
+
+.footer-block {
+    padding: 1rem;
+    text-align: center;
+}
+
+/*=== Adaptive ===*/
+@media screen and (max-width: 577px) {
+    .form-el {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .form-el__item {
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 473px){
+    html {
+        font-size: 3.2vw;
+    }
+}
+/**/
+
+
+
