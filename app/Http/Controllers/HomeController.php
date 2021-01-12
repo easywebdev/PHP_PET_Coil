@@ -8,10 +8,11 @@ use App\Actions\MyValidator;
 use App\Actions\ValidMessages;
 use App\Actions\ValidRules;
 use Illuminate\Http\Request;
+use PDF;
 
 class HomeController extends Controller
 {
-    public function getCoil(Request $request)
+    public function getCoilData(Request $request)
     {
         $coilController = new CoilController();
         $designController = new DesignController();
@@ -40,14 +41,25 @@ class HomeController extends Controller
         // Get materials list
         $materialList = $materialController->getMaterialsList();
 
-        return view('home', [
+        return [
             'coilList'     => $coilList,
             'coilID'       => $selectedCoil->id,
             'selectedCoil' => $selectedCoil,
             'designList'   => $designList,
             'wireList'     => $wireList,
             'materialList' => $materialList,
-        ]);
+        ];
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function getCoil(Request $request)
+    {
+        $coilData = $this->getCoilData($request);
+
+        return view('home', $coilData);
     }
 
     public function newCoil()
@@ -204,5 +216,32 @@ class HomeController extends Controller
             'err'    => $err,
             'result' => $result,
         ];
+    }
+
+    public function getPDF(Request $request)
+    {
+        $calculator = new CalculateController();
+        $calculation = $calculator->calculateCoil($request);
+        //print_r($request->input());
+
+        $coilData = $this->getCoilData($request);
+        $coilData['I'] = $request->input('I');
+        $coilData['t0'] = $request->input('t0');
+        $coilData['result'] = $calculation['result'];
+        $coilData['chartBW'] = $calculation['chartBW'];
+        $coilData['chartRV'] = $calculation['chartRV'];
+        $coilData['err'] = $calculation['err'];
+
+        $pdf = PDF::loadView('pdf', $coilData);
+
+//        $pdf->setOptions([
+//            'enable-javascript' => true,
+//            'javascript-delay' => 13500,
+//            'enable-smart-shrinking' => true,
+//            'no-stop-slow-scripts' => true,
+//            'enable-css' => true,
+//        ]);
+
+        return $pdf->download('hdtuto.pdf');
     }
 }

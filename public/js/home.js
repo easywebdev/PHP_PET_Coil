@@ -14,7 +14,7 @@ $(document).ready(function() {
     calculateCoil();
 
     // Set chart font size
-    setChartFonts();
+    //setChartFonts();
 });
 
 // Action for browser window resizing
@@ -94,10 +94,11 @@ $('#material').change(function() {
 // Calculate
 function calculateCoil()
 {
-    let dataCoil = $('#coildata').serializeArray().reduce(function(a, x) { a[x.name] = x.value; return a; }, {});
-    let chartBW = $('#chartBW').serializeArray().reduce(function(a, x) { a[x.name] = x.value; return a; }, {});
-    let chartRV = $('#chartRV').serializeArray().reduce(function(a, x) { a[x.name] = x.value; return a; }, {});
-    let data = Object.assign(dataCoil, chartBW, chartRV);
+    // let dataCoil = $('#coildata').serializeArray().reduce(function(a, x) { a[x.name] = x.value; return a; }, {});
+    // let chartBW = $('#chartBW').serializeArray().reduce(function(a, x) { a[x.name] = x.value; return a; }, {});
+    // let chartRV = $('#chartRV').serializeArray().reduce(function(a, x) { a[x.name] = x.value; return a; }, {});
+    // let data = Object.assign(dataCoil, chartBW, chartRV);
+    let data = $('#coildata').serializeArray().reduce(function(a, x) { a[x.name] = x.value; return a; }, {});
     //console.log(data);
 
     // Calculate

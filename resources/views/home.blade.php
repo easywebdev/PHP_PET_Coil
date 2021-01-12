@@ -2,7 +2,7 @@
 
 @section('content')
     <main class="s-main">
-        <form id="coildata" method="post" action="">
+        <form id="coildata" name="coildata" method="post" action="{{ route('pdf') }}">
             @csrf
             <section class="coil container p-1rem bb mb-1rem">
                 <h2 class="h2">Coil</h2>
@@ -14,7 +14,8 @@
                     </select>
                     <a class="btn mr-1rem" href="javascript:delCoil()">Delete</a>
                     <a class="btn mr-1rem" href="javascript:saveCoil()">Save</a>
-                    <a class="btn" href="{{ route('new') }}">New Coil</a>
+                    <a class="btn mr-1rem" href="{{ route('new') }}">New Coil</a>
+                    <input class="btn cursor-pointer" type="submit" value="Get PDF">
                 </div>
             </section>
 
@@ -90,7 +91,7 @@
                         </div>
                     </div>
             </section>
-        </form>
+        <!-- </form> -->
 
         <section class="container p-1rem bb mb-1rem">
             <!-- Calculation -->
@@ -176,7 +177,7 @@
             <!-- B & W charts at constant T -->
             <h2 class="h2">Charts: B, W @ T = constant</h2>
 
-            <form id="chartBW">
+            <!--<form id="chartBW" name="chartBW" method="post" action="{{ route('pdf') }}">-->
                 <div class="form-el">
                     <div class="form-el__item">
                         <label class="mr-05rem" for="startI">I<sub>0</sub></label><input class="w-5rem mr-1rem" type="text" id="startI" name="startI" value="0.01">
@@ -191,7 +192,7 @@
                         <label class="mr-05rem" for="TI">T</label><input class="w-5rem" type="text" id="TI" name="TI" value="20">
                     </div>
                 </div>
-            </form>
+            <!--</form>-->
 
             <div class="mb-05rem">
                 <a href="javascript:calculateCoil()" class="btn">Calculate</a>
@@ -211,7 +212,7 @@
             <!-- R & V charts at constant I -->
             <h2 class="h2">Charts: R, V @ I = constant</h2>
 
-            <form id="chartRV">
+            <!--<form id="chartRV">-->
                 <div class="form-el">
                     <div class="form-el__item">
                         <label class="mr-05rem" for="startT">T<sub>0</sub></label><input class="w-5rem mr-1rem" type="text" id="startT" name="startT" value="20">
@@ -226,7 +227,7 @@
                         <label class="mr-05rem" for="IT">I</label><input class="w-5rem" type="text" id="IT" name="IT" value="0.08">
                     </div>
                 </div>
-            </form>
+            <!--</form>-->
 
             <div class="mb-05rem">
                 <a href="javascript:calculateCoil()" class="btn">Calculate</a>
@@ -242,6 +243,7 @@
             </div>
 
         </section>
+        </form>
     </main>
 @endsection
 

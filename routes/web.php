@@ -25,6 +25,8 @@ use App\Http\Controllers\CoilController;
 
 Route::get('/new', [HomeController::class, 'newCoil'])->name('new');
 
+//Route::get('/pdf', [HomeController::class, 'getPDF'])->name('pdf');
+
 Route::get('/{id?}', [HomeController::class, 'getCoil'])->name('getCoil');
 
 Route::get('/design/{id}', [DesignController::class, 'getDesign'])->name('getDesign');
@@ -38,6 +40,9 @@ Route::post('/calculate', [CalculateController::class, 'calculateCoil'])->name('
 Route::post('/save', [HomeController::class, 'saveCoil'])->name('save');
 
 Route::post('/update', [HomeController::class, 'updateCoil'])->name('update');
+
+Route::post('/pdf', [HomeController::class, 'getPDF'])->name('pdf');
+//Route::post('/{id?}', function () { echo 'fff'; });
 
 Route::get('/delcoil/{id}', [CoilController::class, 'delCoil'])->name('delCoil');
 
