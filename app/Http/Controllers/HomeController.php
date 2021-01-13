@@ -25,7 +25,7 @@ class HomeController extends Controller
         if(intval($request->route('id'))) {
             $selectedCoil = $coilController->getCoil($request->route('id'));
             if($selectedCoil == null) {
-                return redirect('/');
+                return null;
             }
         }
         else {
@@ -58,6 +58,10 @@ class HomeController extends Controller
     public function getCoil(Request $request)
     {
         $coilData = $this->getCoilData($request);
+
+        if($coilData == null) {
+            return redirect('/');
+        }
 
         return view('home', $coilData);
     }
